@@ -1,5 +1,5 @@
 import { Routes, Route, BrowserRouter, useNavigate } from 'react-router-dom';
-import { lazy, Suspense, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import Layout from './components/Layout';
 import Home from './components/Home';
 //import Admin from './components/Admin';
@@ -10,9 +10,11 @@ import ErrorFallBack from './components/ErrorFallBack';
 import SignUp from './components/SignUp';
 import ProtectedRoute from './components/ProtectedRoute';
 const Admin = lazy(() => import('./components/Admin'));
-
+import axios from 'axios';
+import Dropdown from './components/Dropdown';
 function App() {
   //const navigate = useNavigate();
+
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
 
@@ -63,6 +65,7 @@ function App() {
               />
             }
           />
+          <Route path="dropdown" element={<Dropdown />} />
           <Route path="*" element={<PageNotFound />} />
         </Route>
       </Routes>

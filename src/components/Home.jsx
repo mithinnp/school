@@ -1,10 +1,10 @@
 import { Link } from 'react-router-dom';
+import CourouselImage from './CourouselImage';
 
 function Home() {
   return (
     <div>
-      <h1>Home page</h1>
-      <Link to={'/admin'}>Admin page</Link>
+      <CourouselImage />
     </div>
   );
 }

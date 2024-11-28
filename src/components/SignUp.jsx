@@ -1,9 +1,19 @@
-import { useState } from 'react';
+import axios from 'axios';
+import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 function SignUp({ username, setUsername, email, setEmail }) {
   const [isLoged, setIsLoged] = useState(false);
+  const [data, setData] = useState([]);
   const navigate = useNavigate();
+  useEffect(() => {
+    console.log('khk');
+    axios
+      .get('http://localhost:4000/students')
+      .then((res) => setData(res.data.data.users[0]))
+      .catch((err) => console.log(err));
+  }, []);
+
   function saveUser(e) {
     e.preventDefault();
     console.log(username, email);

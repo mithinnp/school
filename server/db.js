@@ -1,8 +1,11 @@
-const mongoose = require('mongoose');
+//const mongoose = require('mongoose');
+import mongoose from 'mongoose';
+import dotenv from 'dotenv';
 
-require('dotenv').config();
-
+dotenv.config();
 async function connectDB() {
+  console.log(process.env.DATABASE);
+  console.log('jkkhhjghfgijkj');
   try {
     const data = await mongoose.connect(process.env.DATABASE, {
       useNewUrlParser: true,
@@ -13,5 +16,16 @@ async function connectDB() {
     console.log(err.message);
   }
 }
+// async function connectDB(params) {
+//   try {
+//     const data = await mongoose.connect(DATABASE, {
+//       useNewUrlParser: true,
+//       useUnifiedTopology: true,
+//     });
+//     console.log('db is connected successfully');
+//   } catch (err) {
+//     console.log(err);
+//   }
+// }
 
-module.exports = connectDB;
+export default connectDB;
