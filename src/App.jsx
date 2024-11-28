@@ -1,15 +1,15 @@
 import { Routes, Route, BrowserRouter, useNavigate } from 'react-router-dom';
-import { lazy, Suspense, useEffect, useState } from 'react';
-import Layout from './components/Layout';
+import { useState } from 'react';
+//import Layout from './components/Layout';
 import Home from './components/Home';
 //import Admin from './components/Admin';
 import PageNotFound from './components/PageNotFound';
-import SkeletonAdmin from './components/skeletons/SkeletonAdmin';
-import { ErrorBoundary } from 'react-error-boundary';
-import ErrorFallBack from './components/ErrorFallBack';
-import SignUp from './components/SignUp';
-import ProtectedRoute from './components/ProtectedRoute';
-const Admin = lazy(() => import('./components/Admin'));
+// import SkeletonAdmin from './components/skeletons/SkeletonAdmin';
+// import { ErrorBoundary } from 'react-error-boundary';
+// import ErrorFallBack from './components/ErrorFallBack';
+// import SignUp from './components/SignUp';
+// import ProtectedRoute from './components/ProtectedRoute';
+//const Admin = lazy(() => import('./components/Admin'));
 import axios from 'axios';
 import Dropdown from './components/Dropdown';
 function App() {
@@ -21,7 +21,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route
+        {/* <Route
           path="/"
           element={
             <Layout
@@ -31,10 +31,10 @@ function App() {
               setEmail={setEmail}
             />
           }
-        >
-          <Route index element={<Home />} />
+        > */}
+        <Route index element={<Home />} />
 
-          <Route
+        {/* <Route
             path="admin"
             element={
               <ErrorBoundary
@@ -64,10 +64,9 @@ function App() {
                 setEmail={setEmail}
               />
             }
-          />
-          <Route path="dropdown" element={<Dropdown />} />
-          <Route path="*" element={<PageNotFound />} />
-        </Route>
+          /> */}
+        <Route path="dropdown" element={<Dropdown />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </BrowserRouter>
   );
